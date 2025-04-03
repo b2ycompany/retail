@@ -1,5 +1,5 @@
 import Header from "./header/Header";
-import SubMenu from "./header/subMenu";
+import SubMenu from "./header/SubMenu";
 import Body from "./body/Body";
 import Details from "./product/Details";
 import Footer from "./footer/Footer";
