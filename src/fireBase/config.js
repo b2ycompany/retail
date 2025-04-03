@@ -4,13 +4,12 @@ import "firebase/firestore";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBycp5aJB5XaBc9ORbEkS2Uqkf_dSQtbWs",
-  authDomain: "olx-clone-ebe46.firebaseapp.com",
-  projectId: "olx-clone-ebe46",
-  storageBucket: "olx-clone-ebe46.appspot.com",
-  messagingSenderId: "51910246868",
-  appId: "1:51910246868:web:85f5fe5b7bd4c8ebff5641",
+  apiKey: "AIzaSyDg0Vkrb9aLiEyEQRntrv5EvC9bSnffFVk",
+  authDomain: "retail-5d0f2.firebaseapp.com",
+  projectId: "retail-5d0f2",
+  storageBucket: "retail-5d0f2.appspot.com",
+  messagingSenderId: "281562587128",
+  appId: "1:281562587128:web:519b9531907755c871800d"
 };
-
 firebase.initializeApp(firebaseConfig);
 export default firebase;
