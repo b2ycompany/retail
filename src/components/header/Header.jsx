@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import SubMenu from "./subMenu";
+import SubMenu from "./SubMenu";
 
 const Header = () => {
   return (
