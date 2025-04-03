@@ -3,27 +3,33 @@ import { FirebaseContext } from "../../context/context";
 import { useContext, useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
 import Toast from "../Toast";
+import { getFirestore, collection, getDocs } from "firebase/firestore"; // Importe as funções corretas
+import { db } from "../../fireBase/config"; // Importe 'db'
+
 const Body = () => {
   const { firebase } = useContext(FirebaseContext);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    firebase
-      .firestore()
-      .collection("products")
-      .get()
-      .then((res) => {
-        const allProducts = res.docs.map((product) => {
-          return {
-            ...product.data(),
-            id: product.id,
-          };
-        });
+    const fetchProducts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "products")); // Use getDocs
+        const allProducts = querySnapshot.docs.map((product) => ({
+          ...product.data(),
+          id: product.id,
+        }));
         setProducts(allProducts);
         setIsLoading(false);
-      });
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, []);
+
   return (
     <>
       <Toast />

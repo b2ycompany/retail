@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import firebase from "./fireBase/config"; // Importe a instância do Firebase
 
 // FireBase context for access the firebase config from anywher in the application
 export const FirebaseContext = createContext(null);
@@ -19,9 +20,11 @@ ProductContext.displayName = "ProductContext";
 const Context = ({ children }) => {
   const [user, setUser] = useState(null);
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
-      {children}
-    </AuthContext.Provider>
+    <FirebaseContext.Provider value={firebase}> {/* Forneça a instância do Firebase */}
+      <AuthContext.Provider value={{ user, setUser }}>
+        {children}
+      </AuthContext.Provider>
+    </FirebaseContext.Provider>
   );
 };
 
